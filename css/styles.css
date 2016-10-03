@@ -52,6 +52,14 @@ html {
   color: #3DDC0B;
 }
 
+.detail-btn {
+  width: 100%;
+  background-color: #E55D6A;
+  border: 3px solid #E55D6A;
+  margin-left: 0;
+  border-radius: 0px;
+}
+
 /*Footer Styles*/
 
 footer {
