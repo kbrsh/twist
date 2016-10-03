@@ -17,7 +17,7 @@ html {
   font-family: "Qanelas-Bold";
 }
 
-p {
+.tagline {
   font-family: "Lato";
   color: #6f6f6f;
   font-size: 1.7rem;
