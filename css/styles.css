@@ -9,10 +9,11 @@ html {
   text-align: center;
 }
 
-h1 {
+#hero h1 {
   font-size: 7rem;
   letter-spacing: 0.3rem;
   font-weight: bolder;
+  font-family: "Qanelas-Bold";
 }
 
 /*Footer Styles*/
