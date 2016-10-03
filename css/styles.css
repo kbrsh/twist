@@ -89,6 +89,10 @@ html {
   text-align: center;
 }
 
+.modal-content img {
+  margin-bottom: -50px;
+}
+
 .modal-header {
   font-family: "Qanelas-Bold";
   color: #E55D6A;
