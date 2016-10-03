@@ -29,6 +29,29 @@ html {
   margin-bottom: -75px;
 }
 
+/*Projects Styles*/
+
+.project {
+  font-family: "Lato";
+}
+
+.project h4 {
+  color: #111;
+  font-family: "Lato";
+}
+
+.level {
+  font-family: "Lato";
+}
+
+.project p {
+  font-family: "Lato";
+}
+
+.green {
+  color: #3DDC0B;
+}
+
 /*Footer Styles*/
 
 footer {
