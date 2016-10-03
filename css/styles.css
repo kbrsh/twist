@@ -60,6 +60,12 @@ html {
   border-radius: 0px;
 }
 
+.detail-btn:hover {
+  background: transparent;
+  border: 3px solid #7A3C87;
+  color: #7A3C87;
+}
+
 /*Footer Styles*/
 
 footer {
