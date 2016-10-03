@@ -47,10 +47,13 @@ html {
 .info {
   font-family: "Lato";
   color: #6f6f6f;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .detail-btn {
-  width: 100%;
+  width: 75%;
   background-color: #E55D6A;
   border: 3px solid #E55D6A;
   margin-left: 0;
