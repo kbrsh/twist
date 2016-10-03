@@ -1,10 +1,19 @@
 html {
   overflow-x: hidden;
   background: #f5f5f5;
+  font-family: "Lato";
 }
 
 /*Hero Styles*/
+#hero {
+  text-align: center;
+}
 
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.3rem;
+  font-weight: bolder;
+}
 
 /*Footer Styles*/
 
