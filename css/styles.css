@@ -58,6 +58,8 @@ html {
   border: 3px solid #E55D6A;
   margin-left: 0;
   border-radius: 0px;
+  font-family: "Qanelas-Bold";
+  font-size: 2rem;
 }
 
 .detail-btn:hover {
