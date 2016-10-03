@@ -43,18 +43,10 @@ html {
   font-weight: 700;
 }
 
-.level {
-  font-family: "Lato";
-  font-size: 1.7rem;
-}
 
 .info {
   font-family: "Lato";
   color: #6f6f6f;
-}
-
-.green {
-  color: #3DDC0B;
 }
 
 .detail-btn {
