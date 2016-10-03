@@ -16,6 +16,12 @@ html {
   font-family: "Qanelas-Bold";
 }
 
+.logo {
+  height: 125px;
+  width: 125px;
+  margin-bottom: -75px;
+}
+
 /*Footer Styles*/
 
 footer {
