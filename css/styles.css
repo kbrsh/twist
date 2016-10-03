@@ -40,14 +40,17 @@ html {
   color: #111;
   font-family: "Lato";
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .level {
   font-family: "Lato";
+  font-size: 1.7rem;
 }
 
 .info {
   font-family: "Lato";
+  color: #6f6f6f;
 }
 
 .green {
