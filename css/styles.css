@@ -2,6 +2,7 @@ html {
   overflow-x: hidden;
   background: #f5f5f5;
   font-family: "Lato";
+  font-weight: 400;
 }
 
 /*Hero Styles*/
@@ -35,9 +36,10 @@ html {
   font-family: "Lato";
 }
 
-.project h4 {
+.project h5 {
   color: #111;
   font-family: "Lato";
+  text-transform: uppercase;
 }
 
 .level {
@@ -58,8 +60,10 @@ html {
   border: 3px solid #E55D6A;
   margin-left: 0;
   border-radius: 0px;
-  font-family: "Qanelas-Bold";
-  font-size: 2rem;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: all 0.5s ease;
 }
 
 .detail-btn:hover {
