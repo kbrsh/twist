@@ -10,7 +10,7 @@ html {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 7rem;
   letter-spacing: 0.3rem;
   font-weight: bolder;
 }
@@ -20,7 +20,7 @@ h1 {
 footer {
   color: #8F8F8F;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: "Lato";
   position: absolute;
   height: auto;
