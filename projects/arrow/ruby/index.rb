@@ -5,6 +5,27 @@ require 'haml'
 # Setup db
 DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/arrow.db")
 
+class Link
+  include DataMapper::Resource
+  property :id, Serial
+  property :title, String
+  property :url, Text
+  property :score, Integer
+  property :points, Integer, :default => 0
+  property :created_at, Time
+
+  attr_accessor :score
+
+  def getScore
+    time_elapsed = (Time.now - self.created_at) / 3600
+    self.score = self.points / time_elapsed
+  end
+
+  def self.sortLinksByScore
+    self.all.each { |item| item.calculate_score }.sort { |a,b| a.score <=> b.score }.reverse
+  end
+end
+
 # 404 Page
 error Sinatra::NotFound do
   content_type 'text/plain'
