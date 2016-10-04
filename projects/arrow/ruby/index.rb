@@ -18,12 +18,11 @@ class Link
   property :points, Integer, :default => 0
   property :created_at, Time
 
-  has n, :points
   attr_accessor :score
 
   def getScore
     time_elapsed = (Time.now - self.created_at) / 3600
-    self.score = self.points / time_elapsed
+    self.score = (self.points / time_elapsed) / 100
   end
 
   def self.sortLinksByScore
@@ -32,16 +31,6 @@ class Link
 
 end
 
-class Point
-  include DataMapper::Resource
-  property :id, Serial
-  property :ip, String
-  property :created_at, Time
-
-  belongs_to :link
-
-  validates_uniqueness_of :ip, :scope => :link_id, :message => "You cannot vote for a link more than once."
-end
 # Setup DB
 DataMapper.finalize.auto_upgrade!
 
@@ -64,10 +53,8 @@ end
 
 post '/:id/upvote' do
   linkToUpvote = Link.get params[:id]
-  if linkToUpvote.votes.new(:ip => request.ip).save
-		linkToUpvote.update(:points => linkToUpvote.points + 1)
-    linkToUpvote.save
-	end
+  linkToUpvote.points += 1
+  linkToUpvote.save
   redirect back
 end
 
