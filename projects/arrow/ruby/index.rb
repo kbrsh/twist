@@ -29,9 +29,6 @@ class Link
     self.all.each { |item| item.getScore }.sort { |a,b| a.score <=> b.score }.reverse
   end
 
-  def self.sortLinksByAge
-    self.all.each { |item| }.sort { |a,b| a.(Time.now - self.created_at) / 3600 <=> b.(Time.now - self.created_at) / 3600}
-  end
 end
 
 # Setup DB
@@ -44,10 +41,6 @@ get '/' do
   haml :index
 end
 
-get '/new' do
-  @links = Link.sortLinksByAge
-  haml :index
-end
 
 post '/create' do
   new_link = Link.new
