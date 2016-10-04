@@ -9,7 +9,7 @@
     -@links.each do |link|
       #projects
         .project
-          %form{:action => "/#{link.id}/upvote", :method => "POST"}
+          %form{:action => "/#{link.id}/upvote", :method => "POST"}(class="upvote-form")
             %button(onclick="this.submit()" class="upvote-btn")
               %span.upvote-arrow
               %p #{link.points}

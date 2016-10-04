@@ -1,3 +1,7 @@
+.project, .upvote-form {
+  display: inline;
+}
+
 .upvote-btn {
   background: transparent;
   color: #111;
