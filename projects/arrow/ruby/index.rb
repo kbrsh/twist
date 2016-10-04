@@ -23,6 +23,7 @@ class Link
   def getScore
     time_elapsed = (Time.now - self.created_at) / 3600
     self.score = self.points / time_elapsed
+    self.time_elapsed = time_elapsed
   end
 
   def self.sortLinksByScore
