@@ -5,6 +5,7 @@ require 'haml'
 # Setup db
 DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/arrow.db")
 
+# Data structure for link
 class Link
   include DataMapper::Resource
   property :id, Serial
@@ -22,8 +23,17 @@ class Link
   end
 
   def self.sortLinksByScore
-    self.all.each { |item| item.calculate_score }.sort { |a,b| a.score <=> b.score }.reverse
+    self.all.each { |item| item.getScore }.sort { |a,b| a.score <=> b.score }.reverse
   end
+end
+
+# Setup DB
+DataMapper.finalize.auto_upgrade!
+
+# Routes
+
+get '/' do
+
 end
 
 # 404 Page
