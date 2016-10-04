@@ -5,7 +5,7 @@
     %link(rel="stylesheet" href="./css/lib/wing.min.css")
     %link(rel="stylesheet" href="./css/styles.css")
   %body
-    %h1 Arrow
+    %h1(id="message") Arrow
     -@links.each do |link|
       #projects
         .project
@@ -13,7 +13,9 @@
             %button(onclick="this.submit()" class="upvote-btn")
               %span.upvote-arrow
               %p #{link.points}
-          %a(href="#{link.url}" class="project-link") #{link.title}
+          %a(href="#{link.url}" class="project-link")
+            #{link.title}
+            .project-host (#{URI.parse(link.url).host})
 
     %form{:action => "/create", :method => "post"}
       %input{:type => "text", :name => "title", :placeholder => "Title"}

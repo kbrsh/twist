@@ -7,6 +7,17 @@
   color: #111;
 }
 
+.project-link {
+  color: #111;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-host {
+  color: #cdcdcd;
+  display: inline;
+}
+
 .upvote-arrow {
   width: 0;
 	height: 0;

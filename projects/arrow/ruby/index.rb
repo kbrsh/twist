@@ -18,6 +18,7 @@ class Link
   property :points, Integer, :default => 0
   property :created_at, Time
 
+  has n, :votes
   attr_accessor :score
 
   def getScore
@@ -31,6 +32,16 @@ class Link
 
 end
 
+class Vote
+  include DataMapper::Resource
+  property :id, Serial
+  property :ip, String
+  property :created_at, Time
+
+  belongs_to :link
+
+  validates_uniqueness_of :ip, :scope => :link_id, :message => "You cannot vote for a link more than once."
+end
 # Setup DB
 DataMapper.finalize.auto_upgrade!
 
@@ -53,8 +64,10 @@ end
 
 post '/:id/upvote' do
   linkToUpvote = Link.get params[:id]
-  linkToUpvote.points += 1
-  linkToUpvote.save
+  if linkToUpvote.votes.new(:ip => request.ip).save
+		linkToUpvote.update(:points => linkToUpvote.points + 1)
+    linkToUpvote.save
+	end
   redirect back
 end
 
