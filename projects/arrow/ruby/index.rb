@@ -33,7 +33,8 @@ DataMapper.finalize.auto_upgrade!
 # Routes
 
 get '/' do
-
+  @links = Link.sortLinksByScore
+  haml :index
 end
 
 # 404 Page
