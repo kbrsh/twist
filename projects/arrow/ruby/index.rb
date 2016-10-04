@@ -1,6 +1,6 @@
 require 'sinatra'
 
-# DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/database.db")
+DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/arrow.db")
 
 error Sinatra::NotFound do
   content_type 'text/plain'
