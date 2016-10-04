@@ -18,7 +18,7 @@ class Link
   property :points, Integer, :default => 0
   property :created_at, Time
 
-  has n, :votes
+  has n, :points
   attr_accessor :score
 
   def getScore
@@ -32,7 +32,7 @@ class Link
 
 end
 
-class Vote
+class Point
   include DataMapper::Resource
   property :id, Serial
   property :ip, String
