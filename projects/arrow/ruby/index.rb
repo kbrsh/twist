@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'data_mapper'
 
 # Setup db
 DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/arrow.db")
