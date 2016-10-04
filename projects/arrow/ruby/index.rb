@@ -2,6 +2,9 @@ require 'sinatra'
 require 'data_mapper'
 require 'haml'
 
+# Setup assets
+set :public_folder, 'assets'
+
 # Setup db
 DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/arrow.db")
 
