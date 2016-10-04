@@ -25,6 +25,10 @@ class Link
   def self.sortLinksByScore
     self.all.each { |item| item.getScore }.sort { |a,b| a.score <=> b.score }.reverse
   end
+  #
+  # def self.sortLinksByAge
+  #   self.all.each { |item| item.getTimeElapsed }.sort { |a,b| a.time_elapsed <=> b.time_elapsed}
+  # end
 end
 
 # Setup DB
@@ -35,6 +39,27 @@ DataMapper.finalize.auto_upgrade!
 get '/' do
   @links = Link.sortLinksByScore
   haml :index
+end
+
+# get '/new' do
+#   @links = Link.sortLinksByAge
+#   haml :index
+# end
+
+post '/create' do
+  new_link = Link.new
+  new_link.title = params[:title]
+  new_link.url = params[:url]
+  new_link.created_at = Time.now
+  new_link.save
+  redirect back
+end
+
+put '/:id/upvote' do
+  linkToUpvote = Link.get params[:id]
+  linkToUpvote.points += 1
+  linkToUpvote.save
+  redirect back
 end
 
 # 404 Page

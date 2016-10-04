@@ -5,3 +5,10 @@ doctype
     %link(rel="stylesheet" href="./css/styles.css")
   %body
     %h1 Arrow
+    -@links.each do |link|
+      %a(href="#{link.url}") #{link.title}
+
+    %form{:action => "/create", :method => "post"}
+      %input{:type => "text", :name => "title", :placeholder => "Title"}
+      %input{:type => "text", :name => "url", :placeholder => "Url"}
+      %input{:type => "submit", :value => "Submit"}
