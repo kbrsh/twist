@@ -9,6 +9,8 @@
     -@links.each do |link|
       #projects
         .project
+          %form{:action => "/#{link.id}/upvote", :method => "POST"}
+            %input(class="upvote-arrow" type="submit" value="Upvote")
           %a(href="#{link.url}" class="project-link") #{link.title}
 
     %form{:action => "/create", :method => "post"}
