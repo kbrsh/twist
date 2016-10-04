@@ -10,7 +10,9 @@
       #projects
         .project
           %form{:action => "/#{link.id}/upvote", :method => "POST"}
-            %input(class="upvote-arrow" type="submit" value="Upvote")
+            %button(onclick="this.submit()" class="upvote-btn")
+              %span.upvote-arrow
+              %p #{link.points}
           %a(href="#{link.url}" class="project-link") #{link.title}
 
     %form{:action => "/create", :method => "post"}

@@ -1,0 +1,13 @@
+.upvote-btn {
+  background: transparent;
+  color: #111;
+}
+
+.upvote-arrow {
+  width: 0;
+	height: 0;
+	border-left: 0.7rem solid transparent;
+	border-right: 0.7rem solid transparent;
+	border-bottom: 1rem solid #111;
+  margin-bottom: 1rem;
+}
