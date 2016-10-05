@@ -18,6 +18,8 @@ class Link
   property :points, Integer, :default => 0
   property :created_at, Time
 
+  has n, :points
+
   attr_accessor :score
 
   def getScore
@@ -29,6 +31,15 @@ class Link
     self.all.each { |item| item.getScore }.sort { |a,b| a.score <=> b.score }.reverse
   end
 
+end
+
+# Data structure for each vote
+class Point
+  include DataMapper::Resource
+  property :created_at, Time
+  property :ip, String
+
+  belongs_to :Link
 end
 
 # Setup DB
@@ -53,6 +64,9 @@ end
 
 post '/:id/upvote' do
   linkToUpvote = Link.get params[:id]
+  upvote = Point.new
+  upvote.ip = request.ip
+  upvote
   linkToUpvote.points += 1
   linkToUpvote.save
   redirect back
