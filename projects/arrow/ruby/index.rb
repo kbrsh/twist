@@ -18,7 +18,7 @@ class Link
   property :points, Integer, :default => 0
   property :created_at, Time
 
-  has n, :points
+  has n, :upvotes
 
   attr_accessor :score
 
@@ -33,13 +33,15 @@ class Link
 
 end
 
-# Data structure for each vote
-class Point
-  include DataMapper::Resource
-  property :created_at, Time
-  property :ip, String
 
-  belongs_to :Link
+class Upvote
+  include DataMapper::Resource
+	property :id, Serial
+	property :ip_address, String
+
+	belongs_to :link
+
+	validates_uniqueness_of :ip_address, :scope => :link_id
 end
 
 # Setup DB
@@ -64,11 +66,9 @@ end
 
 post '/:id/upvote' do
   linkToUpvote = Link.get params[:id]
-  upvote = Point.new
-  upvote.ip = request.ip
-  upvote
-  linkToUpvote.points += 1
-  linkToUpvote.save
+  if linkToUpvote.upvotes.new(:ip_address => request.ip).save
+     linkToUpvote.update(:points => linkToUpvote.points + 1)
+  end
   redirect back
 end
 
