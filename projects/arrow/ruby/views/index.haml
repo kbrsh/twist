@@ -6,6 +6,13 @@
     %link(rel="stylesheet" href="./css/styles.css")
   %body
     .container
+      -if login?
+        %h1= Hello, #{username}
+      -else
+        %form{:action => "/login", :method => "post"}
+          %input{:type => "text", :name => "username", :placeholder => "Username"}
+          %input{:type => "password", :name => "password", :placeholder => "Password"}
+          %input{:type => "submit", :value => "Submit"}
       %h1(id="message") Arrow
       -@links.each do |link|
         #projects
@@ -17,8 +24,3 @@
             %a(href="#{link.url}" class="project-link")
               #{link.title}
               .project-host (#{URI.parse(link.url).host})
-
-      %form{:action => "/create", :method => "post"}
-        %input{:type => "text", :name => "title", :placeholder => "Title"}
-        %input{:type => "text", :name => "url", :placeholder => "Url"}
-        %input{:type => "submit", :value => "Submit"}

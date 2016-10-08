@@ -100,10 +100,10 @@ post "/signup" do
   password_salt = BCrypt::Engine.generate_salt
   password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
 
-  if(User.get params[:username]) {
+  if(User.get params[:username])
     User.new(:username => params[:username], :email => params[:email], :salt => password_salt, :hash => password_hash)
     session[:username] = params[:username]
-  }
+  end
 
   redirect "/"
 end
