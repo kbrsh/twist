@@ -28,6 +28,18 @@ end
 # Setup db
 DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/arrow.db")
 
+# User Data Structure
+class User
+  include DataMapper::Resource
+	property :id, Serial
+	property :username, String
+  property :email, String
+  property :salt, String
+  property :hash, String
+
+	has n, :links
+end
+
 # Data structure for link
 class Link
   include DataMapper::Resource
@@ -39,6 +51,8 @@ class Link
   property :created_at, Time
 
   has n, :upvotes
+
+  belongs_to :user
 
   attr_accessor :score
 
@@ -76,6 +90,19 @@ end
 
 get "/signup" do
   haml :signup
+end
+
+post "/signup" do
+  password_salt = BCrypt::Engine.generate_salt
+  password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
+
+  userTable[params[:username]] = {
+    :salt => password_salt,
+    :passwordhash => password_hash
+  }
+
+  session[:username] = params[:username]
+  redirect "/"
 end
 
 
