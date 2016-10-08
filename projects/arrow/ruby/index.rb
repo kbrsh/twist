@@ -34,8 +34,8 @@ class User
 	property :id, Serial
 	property :username, String
   property :email, String
-  property :salt, String
-  property :hash, String
+  property :password_salt, String
+  property :password_hash, String
 
 	has n, :links
 end
@@ -101,7 +101,7 @@ post "/signup" do
   password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
 
   if(User.get params[:username])
-    User.new(:username => params[:username], :email => params[:email], :salt => password_salt, :hash => password_hash)
+    User.new(:username => params[:username], :email => params[:email], :password_salt => password_salt, :password_hash => password_hash)
     session[:username] = params[:username]
   end
 
@@ -111,7 +111,7 @@ end
 post "/login" do
   if User.get params[:username]
     user = User.get params[:username]
-    if user.hash == BCrypt::Engine.hash_secret(params[:password], user.salt)
+    if user.password_hash == BCrypt::Engine.hash_secret(params[:password], user.password_salt)
       session[:username] = params[:username]
       redirect "/"
     end

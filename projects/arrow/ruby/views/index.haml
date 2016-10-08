@@ -7,7 +7,7 @@
   %body
     .container
       -if login?
-        %h1= Hello, #{username}
+        %h1= "Hello, #{username}"
       -else
         %form{:action => "/login", :method => "post"}
           %input{:type => "text", :name => "username", :placeholder => "Username"}
