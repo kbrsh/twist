@@ -114,6 +114,11 @@ post "/login" do
   end
 end
 
+get "/logout" do
+  session[:username] = nil
+  redirect "/"
+end
+
 post '/create' do
   new_link = Link.new
   new_link.title = params[:title]
