@@ -18,7 +18,7 @@
               #{link.title}
               .project-host (#{URI.parse(link.url).host})
 
-    %form{:action => "/create", :method => "post"}
-      %input{:type => "text", :name => "title", :placeholder => "Title"}
-      %input{:type => "text", :name => "url", :placeholder => "Url"}
-      %input{:type => "submit", :value => "Submit"}
+      %form{:action => "/create", :method => "post"}
+        %input{:type => "text", :name => "title", :placeholder => "Title"}
+        %input{:type => "text", :name => "url", :placeholder => "Url"}
+        %input{:type => "submit", :value => "Submit"}
