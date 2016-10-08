@@ -88,6 +88,10 @@ get '/' do
   haml :index
 end
 
+get '/create' do
+  haml :create
+end
+
 get "/signup" do
   haml :signup
 end

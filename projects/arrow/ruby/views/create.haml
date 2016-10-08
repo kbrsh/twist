@@ -1,0 +1,11 @@
+!!! 5
+%html
+  %head
+    %title Arrow
+    %link(rel="stylesheet" href="./css/lib/wing.min.css")
+    %link(rel="stylesheet" href="./css/styles.css")
+  %body
+    %form{:action => "/create", :method => "post"}
+      %input{:type => "text", :name => "title", :placeholder => "Title"}
+      %input{:type => "text", :name => "url", :placeholder => "Url"}
+      %input{:type => "submit", :value => "Submit"}
