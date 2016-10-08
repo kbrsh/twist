@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
 require 'haml'
+require 'bcrypt'
 
 # Setup assets
 set :public_folder, 'assets'
