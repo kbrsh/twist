@@ -96,13 +96,23 @@ post "/signup" do
   password_salt = BCrypt::Engine.generate_salt
   password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
 
-  User.new(:username => params[:username], :email => params[:email], :salt => password_salt, :hash => password_hash)
+  if(User.get params[:username]) {
+    User.new(:username => params[:username], :email => params[:email], :salt => password_salt, :hash => password_hash)
+    session[:username] = params[:username]
+  }
 
-  session[:username] = params[:username]
-  
   redirect "/"
 end
 
+post "/login" do
+  if User.get params[:username]
+    user = User.get params[:username]
+    if user.hash == BCrypt::Engine.hash_secret(params[:password], user.salt)
+      session[:username] = params[:username]
+      redirect "/"
+    end
+  end
+end
 
 post '/create' do
   new_link = Link.new
