@@ -8,5 +8,8 @@
     "start": "node server.js"
   },
   "author": "Kabir Shah",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
