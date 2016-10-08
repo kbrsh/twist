@@ -74,6 +74,10 @@ get '/' do
   haml :index
 end
 
+get "/signup" do
+  haml :signup
+end
+
 
 post '/create' do
   new_link = Link.new
