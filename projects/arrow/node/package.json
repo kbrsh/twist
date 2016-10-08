@@ -1,0 +1,12 @@
+{
+  "name": "arrow",
+  "version": "1.0.0",
+  "description": "link aggregator for twist",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Kabir Shah",
+  "license": "MIT"
+}
