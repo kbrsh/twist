@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title Sign Up | Arrow
+    %link(rel="stylesheet" href="./css/lib/wing.min.css")
+    %link(rel="stylesheet" href="./css/styles.css")
+  %body
+    .container
+      %h1 Sign Up
+      %form{:action => "/signup", :method => "post"}
+        %input{:type => "email", :name => "email", :placeholder => "Email"}
+        %input{:type => "text", :name => "username", :placeholder => "Username"}
+        %input{:type => "password", :name => "password", :placeholder => "Password"}
+        %input{:type => "submit", :value => "Submit"}
