@@ -5,6 +5,9 @@ require 'haml'
 # Setup assets
 set :public_folder, 'assets'
 
+# Enable Sessions
+enable :sessions
+
 # Setup db
 DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/arrow.db")
 
