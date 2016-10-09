@@ -5,6 +5,11 @@ html {
   font-weight: 400;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Qanelas-Bold";
+  color: #111;
+}
+
 p {
   color: #6f6f6f;
   font-weight: 400;
