@@ -5,6 +5,10 @@ html {
   font-weight: 400;
 }
 
+p {
+  color: #6f6f6f;
+}
+
 /*Hero Styles*/
 #hero {
   text-align: center;
@@ -22,7 +26,7 @@ h1 {
   font-family: "Qanelas-Bold";
 }
 
-p {
+.tagline {
   color: #6f6f6f;
   font-size: 2.5rem;
   margin-bottom: 5rem;
