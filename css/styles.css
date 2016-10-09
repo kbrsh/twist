@@ -68,6 +68,11 @@ h1 {
   margin-right: auto;
 }
 
+.feature img {
+  border-radius: 10px;
+}
+
+
 /*Projects Styles*/
 
 .project {
