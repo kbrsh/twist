@@ -183,3 +183,15 @@ footer a:hover {
   background: linear-gradient(#E55D6A, #7A3C87);
   border: none;
 }
+
+
+/*Util*/
+
+
+@media (min-width: 550px) {
+  .small-width {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
