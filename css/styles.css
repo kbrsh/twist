@@ -158,8 +158,9 @@ h1 {
 input[type=email], input[type=text] {
   background: #f1f1f1;
   box-shadow: 5px 5px 5px #ccc;
+
   color: #bbb;
-  width: 50rem;
+  width: 30rem;
 }
 
 /*Footer Styles*/
